@@ -1,0 +1,136 @@
+body {
+    background-color: #000;
+}
+
+/* ===== 背景 ===== */
+.bg-wrapper {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+
+    background-color: black;
+}
+
+.bg.is-active {
+    opacity: 1;
+}
+
+.bg-2 {
+    background-image: url("../img/kagamino_img_L/access-main-top.jpg");
+}
+
+.bg-3 {
+    background-image: url("../img/utatanenosato-img/adout02.jpg");
+}
+
+.bg-4 {
+    background-image: url("../img/kagamino-img-all/about03.jpg");
+}
+
+.bg-5 {
+    background-image: url("../img/kagamino-img-all/adout05.jpg");
+}
+
+/* ===== テキスト ===== */
+
+.scroll-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: end;
+    justify-content: left;
+    /* background-color: transparent; */
+    background-color: rgba(0, 0, 0, 0.148);
+}
+
+.scroll-section01 {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    /* background-color: rgba(0, 0, 0, 0.148); */
+}
+.scroll-section01-img {
+    width: 100%;
+    
+    /* height: 100vh; を以下に変更 */
+    height: 100%;
+    min-height: 100vh; /* 最低でも画面の高さ分は確保 */
+    
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.scroll-section01-img img {
+    width: 100%;
+    height: 100% !important; /* ここが重要：強制的に高さを広げます */
+    object-fit: cover;       /* 画像が歪まないように調整します */
+}
+
+.text {
+    padding: 40px 60px;
+    border-radius: 8px;
+}
+
+.text01 {
+    margin: 0 50px;
+    position: absolute;
+    z-index: 2;
+}
+
+.text01 h2 {
+    color: rgb(255, 255, 255);
+}
+
+.text01 p {
+    color: rgb(255, 255, 255);
+}
+
+.text h2 {
+    margin: 30px 0;
+}
+
+.text p {
+    font-family: "Shippori Mincho", serif;
+    font-size: 0.9rem;
+    line-height: 2.5;
+    letter-spacing: .2rem;
+}
+
+@media (width < 600px) {
+
+
+
+    .text01 {
+        margin: 0 40px;
+    }
+
+    /*ボックス内のh2*/
+    .text01 h2 {
+        font-size: 1rem;
+    }
+
+    .text01 p {
+        font-size: 0.8rem;
+    }
+
+    .text h2 {
+        font-size: 1.3rem;
+    }
+    .text p {
+        font-size: 0.6rem;
+    }
+}

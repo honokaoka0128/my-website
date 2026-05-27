@@ -1,0 +1,563 @@
+:root {
+    --white: #FFF;
+    --black: #000;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+
+}
+
+html {
+    background-color: var(--black);
+}
+
+body p {
+    font-family: "Shippori Mincho", serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: .1rem;
+    color: var(--white);
+}
+
+body h1 {
+    color: var(--white);
+}
+
+body h2 {
+    color: var(--white);
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    letter-spacing: .1rem;
+
+    padding: 10px 0;
+}
+
+body h3 {
+    color: var(--white);
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    letter-spacing: .1rem;
+}
+
+body h4 {
+    color: var(--white);
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    letter-spacing: .1rem;
+
+    padding: 10px 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    overflow-x: hidden;
+}
+
+li {
+    font-family: "Shippori Mincho", serif;
+    list-style: none;
+}
+
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .logo {
+    width: 5%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 3;
+
+    margin-top: 10px;
+    margin-left: 20px;
+    align-items: center;
+} */
+
+nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 他の要素より上に表示 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* padding-right: 20px; */
+
+
+    background-color: rgba(255, 255, 255, 0.021);
+    /* 半透明の白 (透明度0.3) */
+    backdrop-filter: blur(2px);
+    /* 10pxのぼかし */
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 3px 0px;
+    padding: 20px 0;
+}
+
+header ul li {
+    padding: 0px 20px;
+}
+
+header ul li a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+
+/*==================================
+        左から右に線が伸びる（下部）
+===================================*/
+
+.nav-links li a {
+    /*線の基点とするためrelativeを指定*/
+    position: relative;
+}
+
+.nav-links li.current a,
+.nav-links li a:hover {
+    color: #ffffff;
+}
+
+.nav-links li a::after {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+    /*線の形状*/
+    width: 100%;
+    height: 1.5px;
+    background: #ffffff;
+    /*アニメーションの指定*/
+    transition: all .3s;
+    transform: scale(0, 1);
+    /*X方向0、Y方向1*/
+    transform-origin: left top;
+    /*左上基点*/
+}
+
+/*現在地とhoverの設定*/
+.nav-links li.current a::after,
+.nav-links li a:hover::after {
+    transform: scale(1, 1);
+    /*X方向にスケール拡大*/
+}
+
+
+/* --------
+    home 
+-----------*/
+
+#home {
+    position: relative;
+}
+
+#home.top-space {
+    height: 400vh;
+}
+
+#home .main-top {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background-image: url(../img/kagamino_img_L/main-top-img.jpg);
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* 最初は固定 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#home .top-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#home .textbox {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    z-index: 2;
+
+}
+
+#home .vertical {
+    text-orientation: mixed;
+    color: var(--white);
+
+    font-family: "Shippori Mincho", serif;
+    font-size: 1rem;
+    line-height: 2;
+    letter-spacing: .2rem;
+    color: var(--white);
+    text-shadow: #68686847;
+}
+
+
+/*===  丸が動いてスクロールを促す ====*/
+
+/*スクロールダウン全体の場所*/
+.scrolldown2 {
+    /*描画位置※位置は適宜調整してください*/
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    z-index: 3;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown2 span {
+    /*描画位置*/
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    /*テキストの形状*/
+    color: #eee;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    /*縦書き設定*/
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+    writing-mode: vertical-rl;
+}
+
+/* 丸の描写 */
+.scrolldown2:before {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 0;
+    left: -4px;
+    /*丸の形状*/
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #eee;
+    /*丸の動き1.6秒かけて透過し、永遠にループ*/
+    animation:
+        circlemove 1.6s ease-in-out infinite,
+        cirlemovehide 1.6s ease-out infinite;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer p{
+    font-family: "Shippori Mincho", serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: .1rem;
+    color: var(--white);
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove {
+    0% {
+        bottom: 45px;
+    }
+
+    100% {
+        bottom: -5px;
+    }
+}
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 線の描写 */
+.scrolldown2:after {
+    content: "";
+    /*描画位置*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /*線の形状*/
+    width: 2px;
+    height: 50px;
+    background: #eee;
+}
+
+/* scroll down-end */
+
+/*grid-box（色々なレイアウト用）
+---------------------------------------------------------------------------*/
+/*ボックス全体*/
+.grid-box {
+    margin-bottom: 5vw;
+    /*下に空けるスペース。100vw = 画面幅100%なので、この場合は5%。*/
+}
+
+/*section内で使うgrid-boxの左右の余白をなくす*/
+section .grid-box {
+    margin-left: calc(-1 * var(--content-space));
+    margin-right: calc(-1 * var(--content-space));
+}
+
+/*ボックス内のh2*/
+.grid-box h2 {
+    grid-column: 2 / 12;
+    margin: 30px 0;
+}
+
+/*ボックス内のh4*/
+.grid-box h4 {
+    margin: 0;
+}
+
+/*画像と文字を囲むブロック*/
+.grid-box article {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* 12等分 */
+    gap: 5vw;
+    /* 要素間の隙間 */
+    margin-bottom: 5vw;
+    /*下に空けるスペース*/
+    grid-auto-flow: dense;
+}
+
+.grid-box article:last-child {
+    margin-bottom: 0;
+    /*最後のブロックの下マージンをなくす*/
+}
+
+/*imageとtextの設定*/
+.grid-box .image,
+.grid-box .text {
+    align-self: center;
+    position: relative;
+}
+
+/*imageのみの設定*/
+.grid-box .image {
+    grid-column: 1 / -1;
+}
+
+/*textのみの設定*/
+.grid-box .text {
+    grid-column: 2 / 12;
+}
+
+/*装飾イラスト用*/
+.grid-box .kazari {
+    display: block;
+    position: absolute;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    /*幅*/
+}
+
+/*image-wide（横長で使う場合）*/
+.grid-box .image-wide {
+    grid-column: 2 / 12;
+}
+
+/*image-01*/
+.grid-box .image-01 {
+    grid-column: 8 / 12;
+}
+
+/*.text-01*/
+.grid-box .text-01 {
+    grid-column: 2 / 8;
+}
+
+/*image-01（左右入れ替え用）*/
+.grid-box article.reverse .image-01 {
+    grid-column: 2 / 6;
+}
+
+/*text-01（左右入れ替え用）*/
+.grid-box article.reverse .text-01 {
+    grid-column: 6 / 12;
+}
+
+/*image-02*/
+.grid-box .image-02 {
+    grid-column: 1 / 10;
+}
+
+/*text-02*/
+.grid-box .text-02 {
+    grid-column: 2 / 10;
+}
+
+/*image-02（左右入れ替え用）*/
+.grid-box article.reverse .image-02 {
+    grid-column: 4 / -1;
+}
+
+/*text-02（左右入れ替え用）*/
+.grid-box article.reverse .text-02 {
+    grid-column: 4 / 12;
+}
+
+.footer {
+    position: relative;
+    color: #fff;
+    padding: 0px 0 0px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+
+/*画面幅500px以下の追加指定*/
+@media screen and (max-width:500px) {
+
+    /*section内で使うgrid-boxの左右の余白をデフォルトに戻す*/
+    section .grid-box {
+        margin-left: var(--content-space);
+        margin-right: var(--content-space);
+    }
+
+    /*画像と文字を囲むブロック*/
+    .grid-box article {
+        display: block;
+        margin-bottom: 60px;
+    }
+
+}
+
+/*　モノクロからカラーへ　*/
+
+.grayscale img {
+    filter: grayscale(100%);
+    /*モノクロ具合を変更したい場合はこの数値を変更*/
+    transition: .3s ease-in-out;
+    /*移り変わる速さを変更したい場合はこの数値を変更*/
+}
+
+.grayscale a:hover img {
+    /*hoverした時の変化*/
+    filter: grayscale(0);
+}
+
+
+/* ------------------------
+        footer
+---------------------------*/
+#footer.my-text-index {
+    font-size: 1.5rem;
+    opacity: 0.5;
+
+    font-weight: 300;
+    font-optical-sizing: auto;
+    letter-spacing: 0.1rem;
+    text-indent: 0.1rem;
+    -webkit-text-size-adjust: none;
+
+}
+
+.index-li {
+    text-align: left;
+    list-style: none;
+    text-decoration: none;
+
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.index-li a {
+    color: var(--white);
+    list-style: none;
+    text-decoration: none;
+
+    font-size: 1.3rem;
+    font-family: "Lora", serif;
+    font-weight: 300;
+    font-optical-sizing: auto;
+    letter-spacing: 0.1rem;
+    text-indent: 0.1rem;
+    -webkit-text-size-adjust: none;
+}
+
+.index-li a:hover {
+    color: #666666;
+}
+
+
+
+/*画面幅500px以下の追加指定*/
+@media (width < 600px) {
+
+
+
+    /*ボックス内のh2*/
+    .grid-box h2 {
+        font-size: 1.7rem;
+        top: 0;
+        right: 10%;
+    }
+
+    /*ボックス内のh4*/
+    .grid-box h4 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    /*ボックス内のh4*/
+    .grid-box p {
+        font-size: 0.6rem;
+        margin: 0;
+    }
+
+}
